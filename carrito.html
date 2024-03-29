@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="./img/logo/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Hospital M. Quiroga | Carrito</title>
+  </head>
+
+  <body>
+    <!--Barra de Navegación-->
+    <nav class="navbar navbar-expand-md fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index2.html">
+          <img
+            src="./img/logo/favicon.ico"
+            alt="Logotipo Hospital"
+            class="logo"
+          />
+          <span>Hospital Privado M. Quiroga</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="./index2.html"
+                ><i class="bx bx-home"></i>Principal</a
+              >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="./services.html"
+                ><i class="bx bxs-drink"></i>Servicios</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link out" href="./index.html"
+                >Salir<i class="bi bi-box-arrow-left p-2"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Fin de barra de Navegación-->
+    <div class="wrapper">
+      <aside>
+        <div>
+          <ul>
+            <li>
+              <a class="boton-menu boton-volver" href="./services.html">
+                <i class="bi bi-arrow-return-left"></i>Seguir comprando
+              </a>
+            </li>
+            <li>
+              <a class="boton-menu boton-carrito active" href="./carrito.html">
+                <i class="bi bi-cart-fill"></i> Carrito
+                <span class="numerito"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <main class="maincarrito">
+        <h2 class="titulo-principal">Carrito</h2>
+        <div class="contenedor-carrito">
+          <p id="carrito-vacio" class="carrito-vacio">
+            Tu carrito esta vacio.<i class="bi bi-cart-x"></i>
+          </p>
+          <div id="carrito-servicios" class="carrito-servicios disable">
+            <!-- se completa con js-->
+          </div>
+          <div id="carrito-acciones" class="carrito-acciones disable">
+            <div class="carrito-acciones-izquierda">
+              <button
+                id="carrito-acciones-vaciar"
+                class="carrito-acciones-vaciar"
+              >
+                Vaciar carrito
+              </button>
+            </div>
+            <div class="carrito-acciones-derecha">
+              <div class="carrito-acciones-total">
+                <p>Total:</p>
+                <p id="total">$60000</p>
+              </div>
+              <button
+                id="carrito-acciones-comprar"
+                class="carrito-acciones-comprar"
+              >
+                Comprar ahora
+              </button>
+            </div>
+          </div>
+          <p id="carrito-comprado" class="carrito-comprado disable">
+            Muchas gracias por su compra.<i class="bi bi-cart-check"></i>
+          </p>
+        </div>
+      </main>
+    </div>
+    <!--Sección pie de página -->
+
+    <footer class="footer__container">
+      <div class="container-fluid">
+        <div class="row p-5 bg-black text-white">
+          <div class="col-xs-12 col-md-6 col-lg-3">
+            <h3 class="mb-3">HOSPITAL PRIVADO M. QUIROGA</h3>
+            <img
+              src="../img/logo/favicon.ico"
+              alt="Logotipo Hospital"
+              class="logo"
+            />
+            <h6>
+              Encontrá los servicios con los mejores precios en nuestra página.
+              Contáctanos a nuestro mail o whatsapp por cualquier consulta o
+              sugerencia.
+            </h6>
+          </div>
+          <div class="col-xs-12 col-md-6 col-lg-3">
+            <h5>Medios de Pago</h5>
+            <div class="mt-5 mb-3">
+              <img src="../img/pago/visa.png" alt="Visa" />
+              <img src="../img/pago/mastercard.png" alt="Mastercard" />
+              <img src="../img/pago/mercadopago.png" alt="Mercado pago" />
+            </div>
+            <div class="mb-3">
+              <img src="../img/pago/pagofacil.png" alt="Pago Facil" />
+              <img src="../img/pago/rapipago.png" alt="Rapipago" />
+              <img src="../img/pago/tarjeta-naranja.png" alt="Naranja" />
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6 col-lg-3">
+            <h5 class="mb-4">Secciones</h5>
+            <div class="mb-3">
+              <a href="./index2.html">
+                <i class="bx bx-home"></i>
+                Principal
+              </a>
+            </div>
+            <div class="mb-3">
+              <a href="./services.html">
+                <i class="bx bxs-drink"></i>
+                Servicios
+              </a>
+            </div>
+            <div class="mb-3">
+              <a class="bg-dark rounded p-1" href="#top">Volver Arriba</a>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6 col-lg-3">
+            <h5 class="mt-5">
+              Copyright Hospital Privado M. Quiroga - &COPY;2024. Todos los
+              derechos reservados.
+            </h5>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--Fin de Sección pie de página -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./JS/carrito.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
