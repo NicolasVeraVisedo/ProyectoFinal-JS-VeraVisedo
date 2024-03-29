@@ -87,20 +87,20 @@ function eliminarDelCarrito(e) {
     text: "Servicio Eliminado del carrito",
     duration: 3000,
     close: true,
-    gravity: "bottom", // `top` or `bottom`
-    position: "right", // `left`, `center` or `right`
-    stopOnFocus: true, // Prevents dismissing of toast on hover
+    gravity: "bottom",
+    position: "right",
+    stopOnFocus: true,
     style: {
-      background: "linear-gradient(to right, #ec4e04, #eba489)",
+      background: "linear-gradient(to right, #000000, #eba489)",
       borderRadius: "2rem",
       textTransform: "uppercase",
       fontSize: "0.75rem",
     },
     offset: {
-      x: "1.5rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-      y: "1.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      x: "1.5rem",
+      y: "1.5rem",
     },
-    onClick: function () {}, // Callback after click
+    onClick: function () {},
   }).showToast();
 
   // Obtiene el ID del servicio a eliminar y lo elimina del array de servicios en el carrito

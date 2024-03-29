@@ -41,20 +41,20 @@ function cargarServicios(serviciosElegidos) {
       text: "No se encontraron servicios disponibles",
       duration: 3000,
       close: true,
-      gravity: "bottom", // `top` or `bottom`
-      position: "right", // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
+      gravity: "bottom",
+      position: "right",
+      stopOnFocus: true,
       style: {
-        background: "linear-gradient(to right, #ec4e04, #eba489)",
+        background: "linear-gradient(to right, #000000, #eba489)",
         borderRadius: "2rem",
         textTransform: "uppercase",
         fontSize: "0.75rem",
       },
       offset: {
-        x: "1.5rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: "1.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
+        x: "1.5rem",
+        y: "1.5rem",
       },
-      onClick: function () {}, // Callback after click
+      onClick: function () {},
     }).showToast();
   }
   actualizarBotonesAgregar(); // Actualiza los botones de agregar al carrito
@@ -120,20 +120,20 @@ function agregarAlCarrito(e) {
       text: `Ya tienes un servicio de "${servicioAgregado.categoria.nombre}" en el carrito.`,
       duration: 3000,
       close: true,
-      gravity: "bottom", // `top` or `bottom`
-      position: "right", // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
+      gravity: "bottom",
+      position: "right",
+      stopOnFocus: true,
       style: {
-        background: "linear-gradient(to right, #ec4e04, #eba489)",
+        background: "linear-gradient(to right, #000000, #eba489)",
         borderRadius: "2rem",
         textTransform: "uppercase",
         fontSize: "0.75rem",
       },
       offset: {
-        x: "1.5rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: "1.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
+        x: "1.5rem",
+        y: "1.5rem",
       },
-      onClick: function () {}, // Callback after click
+      onClick: function () {},
     }).showToast();
   } else {
     // Si el servicio no está en el carrito, lo agrega y muestra un mensaje de éxito
@@ -141,20 +141,20 @@ function agregarAlCarrito(e) {
       text: "Servicio agregado al carrito con éxito",
       duration: 3000,
       close: true,
-      gravity: "bottom", // `top` or `bottom`
-      position: "right", // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
+      gravity: "bottom",
+      position: "right",
+      stopOnFocus: true,
       style: {
-        background: "linear-gradient(to right, #ec4e04, #eba489)",
+        background: "linear-gradient(to right, #000000, #eba489)",
         borderRadius: "2rem",
         textTransform: "uppercase",
         fontSize: "0.75rem",
       },
       offset: {
-        x: "1.5rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: "1.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
+        x: "1.5rem",
+        y: "1.5rem",
       },
-      onClick: function () {}, // Callback after click
+      onClick: function () {},
     }).showToast();
 
     // Añadir el servicio al carrito
@@ -168,6 +168,7 @@ function agregarAlCarrito(e) {
     );
   }
 
+  //Prueba de que el numerito funciona incrementando su cantidad, se deben borrar los condicionales de servicios
   // Si el servicio ya está en el carrito, incrementa su cantidad; de lo contrario, lo añade con cantidad 1
   /* if (serviciosEnCarrito.some((servicio) => servicio.id === idBoton)) {
     const services = serviciosEnCarrito.findIndex(
@@ -179,12 +180,6 @@ function agregarAlCarrito(e) {
     serviciosEnCarrito.push(servicioAgregado);
   }
   actualizarNumerito();  */ // Actualiza el contador del carrito
-
-  // Guarda los servicios en el carrito en el local storage
-  /*   localStorage.setItem(
-    "servicios-en-carrito",
-    JSON.stringify(serviciosEnCarrito)
-  ); */
 }
 
 // Función para actualizar el contador del carrito

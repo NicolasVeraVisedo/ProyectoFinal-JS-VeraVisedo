@@ -1,3 +1,4 @@
+// Seleccionar elementos del formulario de registro
 const formRegister = document.querySelector("#formReg"),
   email = document.querySelector("#email"),
   nombre = document.querySelector("#nombre"),
@@ -5,9 +6,10 @@ const formRegister = document.querySelector("#formReg"),
   passReg = document.querySelector("#passReg"),
   btnRegistrar = document.querySelector("#registrar");
 
-let usuarios = JSON.parse(localStorage.getItem("usuarios")) || []; //si hay datos en LS usuarios = LS, sino usuarios = []
+// Obtener usuarios de LS o inicializar como array vacío si no hay datos
+let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-//Constructor de usuarios
+// Definir la clase Usuario para crear objetos de usuario
 class Usuario {
   constructor(nombre, usuario, email, password) {
     this.nombre = nombre;
@@ -17,43 +19,24 @@ class Usuario {
   }
 }
 
-//Guardar usuarios
+// Función para agregar un usuario al array usuarios
 function guardarUsuario(usuario) {
   return usuarios.push(usuario);
 }
 
-//Guardar en LS
+// Función para guardar el array usuarios en LS
 function guardarEnLS(arr) {
   return localStorage.setItem("usuarios", JSON.stringify(arr));
 }
 
-//Evento
+// Evento del boton registrarse del formulario de registro
 formRegister.addEventListener("submit", (e) => {
   e.preventDefault();
 
   // Verificar si algun input está vacío
   if (!nombre.value || !userReg.value || !email.value || !passReg.value) {
-    // Mostrar mensaje de que todas las inputs deben estar completas
-    Toastify({
-      text: `Todos los campos deben estar completos`,
-      duration: 3000,
-      close: true,
-      gravity: "bottom", // `top` or `bottom`
-      position: "right", // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
-      style: {
-        background: "linear-gradient(to right, #ec4e04, #eba489)",
-        borderRadius: "2rem",
-        textTransform: "uppercase",
-        fontSize: "0.75rem",
-      },
-      offset: {
-        x: "1.5rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: "1.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
-      },
-      onClick: function () {}, // Callback after click
-    }).showToast();
-
+    // Mostrar mensaje de que todas los inputs deben estar completos
+    mostrarMensaje2(`Todos los campos deben estar completos`);
     return; // Detener el proceso de registro
   }
 
@@ -64,29 +47,11 @@ formRegister.addEventListener("submit", (e) => {
 
   if (usuarioExistente) {
     // Mostrar mensaje de que el usuario ya está registrado
-    Toastify({
-      text: `El usuario ${userReg.value} ya se encuentra registrado`,
-      duration: 3000,
-      close: true,
-      gravity: "bottom", // `top` or `bottom`
-      position: "center", // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
-      style: {
-        background: "linear-gradient(to right, #ec4e04, #eba489)",
-        borderRadius: "2rem",
-        textTransform: "uppercase",
-        fontSize: "0.75rem",
-      },
-      offset: {
-        x: "1.5rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: "1.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
-      },
-      onClick: function () {}, // Callback after click
-    }).showToast();
-
+    mostrarMensaje2(`El usuario ${userReg.value} ya se encuentra registrado`);
     return; // Detener el proceso de registro
   }
 
+  // Crear un nuevo objeto Usuario con los datos del formulario
   const newUsuario = new Usuario(
     nombre.value,
     userReg.value,
@@ -94,26 +59,31 @@ formRegister.addEventListener("submit", (e) => {
     passReg.value
   );
 
-  guardarUsuario(newUsuario);
-  guardarEnLS(usuarios);
+  guardarUsuario(newUsuario); // Guardar el nuevo usuario en el array usuarios
+  guardarEnLS(usuarios); // Guardar el array usuarios en localStorage
 
+  // Mostrar mensaje de éxito
+  mostrarMensaje2(`Usuario registrado con éxito`);
+});
+
+// Función para mostrar un mensaje con Toastify
+function mostrarMensaje2(mensaje) {
   Toastify({
-    text: `Usuario registrado con éxito`,
-    duration: 3000,
+    text: mensaje,
+    duration: 5000,
     close: true,
-    gravity: "bottom", // `top` or `bottom`
-    position: "right", // `left`, `center` or `right`
-    stopOnFocus: true, // Prevents dismissing of toast on hover
+    gravity: "bottom",
+    position: "center",
+    stopOnFocus: true,
     style: {
-      background: "linear-gradient(to right, #ec4e04, #eba489)",
+      background: "linear-gradient(to right, #000000, #eba489)",
       borderRadius: "2rem",
       textTransform: "uppercase",
       fontSize: "0.75rem",
     },
     offset: {
-      x: "1.5rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-      y: "1.5rem", // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      x: "1.5rem",
+      y: "1.5rem",
     },
-    onClick: function () {}, // Callback after click
   }).showToast();
-});
+}

@@ -20,20 +20,6 @@
   font-family: "Roboto", sans-serif;
 }
 
-.mainindex2 {
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 35%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(0, 0, 0, 1) 63%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  border-radius: 0;
-  margin: 0;
-}
-
 h1,
 h2,
 h3,
@@ -53,8 +39,6 @@ ul {
 a {
   text-decoration: none;
 }
-
-/* index2 */
 
 /* Barra de Navegación*/
 .navbar {
@@ -99,6 +83,21 @@ a {
 }
 /*Fin de barra de navegacion*/
 
+/* index2 */
+.mainindex2 {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 35%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(0, 0, 0, 1) 63%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  border-radius: 0;
+  margin: 0;
+}
+
 #inicio {
   padding-top: 6em;
 }
@@ -121,8 +120,6 @@ a {
 #imagenPrincipal img {
   border-radius: 10px;
 }
-
-/*Quienes somos*/
 
 #quienesSomos {
   padding-top: 6em;
@@ -177,6 +174,63 @@ a {
 }
 
 /*Fin de Pie de página*/
+
+/* Sevicios */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contenedor-servicios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.servicio-imagen {
+  max-width: auto;
+  border-radius: 1rem;
+}
+.servicio-detalle {
+  background-color: var(--clr-main);
+  color: var(--clr-white);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: -2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: center;
+}
+.servicio-titulo {
+  font-size: 1rem;
+  border: 1px solid #ffffff;
+}
+.servicio-agregar {
+  border: 0;
+  background-color: var(--clr-white);
+  color: var(--clr-main);
+  padding: 0.25rem;
+  text-transform: uppercase;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: 2px solid var(--clr-white);
+  transition: background-color 0.2s, color 0.2s;
+}
+.servicio-agregar:hover {
+  background-color: var(--clr-main);
+  color: var(--clr-white);
+}
+
+.bi-arrow-right-square-fill,
+.bi-arrow-right-square {
+  transform: rotateZ(90deg);
+}
+
+/* Fin Sevicios */
+
+/* Paginas Sevicios y Carrito */
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -201,11 +255,6 @@ aside {
   font-size: 3rem;
 }
 
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
 .boton-menu {
   background-color: transparent;
   border: 0;
@@ -251,11 +300,6 @@ aside {
   box-shadow: 0 -1rem 0 var(--clr-white);
 }
 
-.bi-hand-index-thumb-fill,
-.bi-hand-index-thumb {
-  transform: rotateZ(90deg);
-}
-
 .boton-carrito {
   margin-top: 1rem;
 }
@@ -287,56 +331,8 @@ main {
   margin-bottom: 2rem;
   text-align: center;
 }
-.mensaje-carrito,
-.mensaje-carrito2 {
-  font-size: 15px;
-  color: var(--clr-gray);
-  margin: 1rem;
-  padding: 5px;
-  text-align: center;
-  border: 1px solid rgb(255, 0, 0);
-  border-radius: 15px;
-}
-.contenedor-servicios {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-.servicio-imagen {
-  max-width: auto;
-  border-radius: 1rem;
-}
-.servicio-detalle {
-  background-color: var(--clr-main);
-  color: var(--clr-white);
-  padding: 1rem;
-  border-radius: 1rem;
-  margin-top: -2rem;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  text-align: center;
-}
-.servicio-titulo {
-  font-size: 1rem;
-  border: 1px solid #ffffff;
-}
-.servicio-agregar {
-  border: 0;
-  background-color: var(--clr-white);
-  color: var(--clr-main);
-  padding: 0.25rem;
-  text-transform: uppercase;
-  border-radius: 1rem;
-  cursor: pointer;
-  border: 2px solid var(--clr-white);
-  transition: background-color 0.2s, color 0.2s;
-}
-.servicio-agregar:hover {
-  background-color: var(--clr-main);
-  color: var(--clr-white);
-}
+
+/* FIN de Paginas Sevicios y Carrito */
 
 /*CARRITO*/
 
@@ -425,6 +421,7 @@ main {
 .disable {
   display: none;
 }
+/* FIN de Carrito */
 
 /********* FOOTER INICIO SESIÓN Y REGISTRO USER *********/
 .footer-2 {
@@ -523,3 +520,27 @@ main {
 }
 
 /********* FIN DE PÁGINAS INICIO SESIÓN / REGISTRO DE USUARIO *********/
+
+/* Estilos para SweetAlert */
+.swal2-popup {
+  background-color: #000;
+  color: white;
+  border-radius: 50px;
+}
+
+.swal2-title {
+  background-color: #e7e0e0;
+  color: black;
+}
+
+.swal2-actions .swal2-confirm {
+  background-color: #00a81c80;
+  border-radius: 50px;
+}
+
+.swal2-actions .swal2-cancel {
+  background-color: #ff0000;
+  border-radius: 50px;
+}
+
+/* Fin Estilos para SweetAlert */
