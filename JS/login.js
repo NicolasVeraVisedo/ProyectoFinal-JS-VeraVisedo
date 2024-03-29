@@ -12,8 +12,8 @@ function inicioSesion(usuarios) {
     return;
   }
 
-  let userFound = usuarios.find((usuario) => {
-    return usuario.nombre == userInput.value && passInput.value;
+  let userFound = usuarios.find((user) => {
+    return user.usuario == userInput.value && passInput.value;
   });
   //si userFound redireccionar
   userFound
