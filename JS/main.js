@@ -13,6 +13,45 @@ const botonesCategorias = document.querySelectorAll(".boton-categorias");
 const tituloPrincipal = document.querySelector("#titulo-principal");
 let botonesAgregar = document.querySelectorAll(".servicio-agregar");
 const numerito = document.querySelector("#numerito");
+const numerito1 = document.querySelector("#numerito1");
+// Selecciono el input de búsqueda y el botón de búsqueda
+const inputBusqueda = document.querySelector("#input-busqueda");
+const btnBusqueda = document.querySelector("#btn-busqueda");
+
+// Función para quitar los acentos de una cadena de texto
+function quitarAcentos(texto) {
+  return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+// Evento de clic en el botón de búsqueda
+btnBusqueda.addEventListener("click", () => {
+  const terminoBusqueda = quitarAcentos(
+    inputBusqueda.value.toLowerCase().trim()
+  ); // Obtener el término de búsqueda, quitar acentos y limpiarlo
+  const serviciosFiltrados = servicios.filter((servicio) =>
+    servicio.id.toLowerCase().includes(terminoBusqueda)
+  ); // Filtrar los servicios cuyo título coincida con el término de búsqueda
+
+  // Condición para verificar si se encontraron resultados
+  if (serviciosFiltrados.length > 0) {
+    // Se encontraron resultados
+    tituloPrincipal.innerText = `Resultados de búsqueda para "${terminoBusqueda}"`;
+  } else {
+    // No se encontraron resultados
+    tituloPrincipal.innerText = `No se encontraron resultados para "${terminoBusqueda}"`;
+  }
+
+  // Mostrar los servicios filtrados
+  cargarServicios(serviciosFiltrados);
+});
+
+// Evento de presionar Enter en el input de búsqueda
+inputBusqueda.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    // Si la tecla presionada es Enter, realiza la búsqueda
+    btnBusqueda.click();
+  }
+});
 
 // Función para cargar los servicios en el contenedor del DOM
 function cargarServicios(serviciosElegidos) {
@@ -61,7 +100,7 @@ function cargarServicios(serviciosElegidos) {
 }
 
 // Función para manejar los eventos de clic en los botones de categorías
-//Crea todas las tarjetas, luego al hacer click sobre cada servicio en el assets, los filtra segun su categoria y sino si vuelvo a todos, vuelve a generarlo al hacer click
+//Crea todas las tarjetas, luego al hacer click sobre cada servicio en el assets, los filtra segun su categoria
 botonesCategorias.forEach((boton) => {
   boton.addEventListener("click", (e) => {
     botonesCategorias.forEach((boton) => boton.classList.remove("active"));
@@ -167,19 +206,6 @@ function agregarAlCarrito(e) {
       JSON.stringify(serviciosEnCarrito)
     );
   }
-
-  //Prueba de que el numerito funciona incrementando su cantidad, se deben borrar los condicionales de servicios
-  // Si el servicio ya está en el carrito, incrementa su cantidad; de lo contrario, lo añade con cantidad 1
-  /* if (serviciosEnCarrito.some((servicio) => servicio.id === idBoton)) {
-    const services = serviciosEnCarrito.findIndex(
-      (servicio) => servicio.id === idBoton
-    );
-    serviciosEnCarrito[services].cantidad++;
-  } else {
-    servicioAgregado.cantidad = 1;
-    serviciosEnCarrito.push(servicioAgregado);
-  }
-  actualizarNumerito();  */ // Actualiza el contador del carrito
 }
 
 // Función para actualizar el contador del carrito
@@ -190,4 +216,5 @@ function actualizarNumerito() {
     0
   );
   numerito.innerText = nuevoNumerito; // Actualiza el texto del contador en el DOM
+  numerito1.innerText = nuevoNumerito;
 }

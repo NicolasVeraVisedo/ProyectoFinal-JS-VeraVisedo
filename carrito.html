@@ -69,27 +69,36 @@
       </div>
     </nav>
     <!-- Fin de barra de Navegación-->
-    <div class="wrapper">
-      <!-- Barra lateral Aside-->
-      <aside>
-        <div>
-          <ul>
-            <li>
-              <a class="boton-menu boton-volver" href="./services.html">
-                <i class="bi bi-arrow-return-left"></i>Seguir comprando
-              </a>
-            </li>
-            <li>
-              <a class="boton-menu boton-carrito active" href="./carrito.html">
-                <i class="bi bi-cart-fill"></i> Carrito
-                <span class="numerito"></span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </aside>
-      <!-- Fin de Barra lateral Aside-->
-      <main class="maincarrito">
+
+    <main>
+      <!-- Barra carrito-->
+      <div>
+        <ul class="barra">
+          <li class="barra__option">
+            <a class="boton-menu boton-volver" href="./services.html">
+              <i class="bi bi-arrow-return-left"></i>Seguir comprando
+            </a>
+          </li>
+          <li class="barra__option">
+            <a class="boton-menu boton-carrito active" href="./carrito.html">
+              <i class="bi bi-cart-fill"></i> Carrito
+            </a>
+          </li>
+        </ul>
+        <svg
+          class="wave"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 2040 320"
+        >
+          <path
+            fill="#FFFFFF"
+            fill-opacity="1"
+            d="M0,128L0,160L360,160L360,256L720,256L720,256L1080,256L1080,288L1440,288L1440,320L1080,320L1080,320L720,320L720,320L360,320L360,320L0,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+      <!-- Fin de Barra carrito-->
+      <div class="wrapper">
         <!-- Menu carrito-->
         <h2 class="titulo-principal">Carrito</h2>
         <div class="contenedor-carrito">
@@ -126,8 +135,9 @@
           </p>
         </div>
         <!-- Fin Menu carrito-->
-      </main>
-    </div>
+      </div>
+    </main>
+
     <!--Sección pie de página -->
 
     <footer class="footer__container">

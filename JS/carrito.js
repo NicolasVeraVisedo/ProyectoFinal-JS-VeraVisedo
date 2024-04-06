@@ -39,17 +39,9 @@ function cargarServiciosCarrito() {
                   <small>Descripcion</small>
                   <p>${descripcion}</p>
                </div>
-                <div class="carrito-servicio-cantidad">
-                  <small>Cantidad</small>
-                  <p>${cantidad}</p>
-               </div>
                <div class="carrito-servicio-precio">
                  <small>Precio</small>
-                 <p>${precio}</p>
-               </div>
-               <div class="carrito-servicio-subtotal">
-                 <small>Subtotal</small>
-                 <p>${precio * cantidad}</p>
+                 <p>$${precio}</p>
                </div>
                <button class="carrito-servicio-eliminar" id="${id}"><i class="bi bi-trash-fill"></i></button>
               </div>`;
@@ -146,6 +138,12 @@ function vaciarCarrito() {
         JSON.stringify(serviciosEnCarrito)
       );
       cargarServiciosCarrito(); // Vuelve a cargar los servicios en el carrito (que estarán vacíos)
+      Swal.fire({
+        icon: "success",
+        title: "Se han eliminado correctamente",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   });
 }
@@ -165,17 +163,38 @@ botonComprar.addEventListener("click", comprarCarrito);
 
 // Función para realizar la compra (vacía el carrito y muestra un mensaje de compra realizada)
 function comprarCarrito() {
-  serviciosEnCarrito.length = 0; // Vacía el array de servicios en el carrito
+  Swal.fire({
+    title: "¿Estas seguro?",
+    icon: "question",
+    html: `Estás por comprar ${serviciosEnCarrito.reduce(
+      (acc, servicio) => acc + servicio.cantidad,
+      0
+    )} servicios`,
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonText: "Si",
+    cancelButtonText: "No",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      serviciosEnCarrito.length = 0; // Vacía el array de servicios en el carrito
 
-  // Actualiza el almacenamiento local con el carrito vacío
-  localStorage.setItem(
-    "servicios-en-carrito",
-    JSON.stringify(serviciosEnCarrito)
-  );
-
-  // Oculta el contenedor del carrito y muestra el mensaje de compra realizada
-  contenedorCarritoVacio.classList.add("disable");
-  contenedorCarritoServicios.classList.add("disable");
-  contenedorCarritoAcciones.classList.add("disable");
-  contenedorCarritoComprado.classList.remove("disable");
+      // Actualiza el almacenamiento local con el carrito vacío
+      localStorage.setItem(
+        "servicios-en-carrito",
+        JSON.stringify(serviciosEnCarrito)
+      );
+      cargarServiciosCarrito(); // Vuelve a cargar los servicios en el carrito (que estarán vacíos)
+      Swal.fire({
+        icon: "success",
+        title: "Compra realizada con éxito",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      // Oculta el contenedor del carrito y muestra el mensaje de compra realizada
+      contenedorCarritoVacio.classList.add("disable");
+      contenedorCarritoServicios.classList.add("disable");
+      contenedorCarritoAcciones.classList.add("disable");
+      contenedorCarritoComprado.classList.remove("disable");
+    }
+  });
 }

@@ -60,61 +60,135 @@
               ></a>
             </li>
           </ul>
+
+          <div class="search-and-icons text-center mb-2">
+            <a
+              href="./carrito.html"
+              type="button"
+              class="btn position-relative rounded-circle"
+            >
+              <span id="numerito1" class="numerito">0</span
+              ><i class="bi bi-cart4"></i>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
     <!-- Fin de barra de Navegación-->
 
-    <div class="wrapper">
-      <!-- Barra lateral Aside -->
-      <aside>
-        <div>
-          <ul class="menu">
-            <li>
-              <h3>SELECCIONE SU SERVICIO:</h3>
-            </li>
-            <li>
+    <main>
+      <!-- Barra de servicios -->
+      <div>
+        <h3>SELECCIONE UN SERVICIO:</h3>
+        <ul class="barra">
+          <li class="barra__option">
+            <div class="form-check">
               <button id="todos" class="boton-menu boton-categorias active">
-                <i class="bi bi-arrow-right-square-fill"></i>Todos los servicios
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios1"
+                  value="option1"
+                  checked
+                />
+                <label class="form-check-label" for="exampleRadios1">
+                  Todos los servicios
+                </label>
               </button>
-            </li>
-            <li>
+            </div>
+          </li>
+          <li class="barra__option">
+            <div class="form-check">
               <button id="intern" class="boton-menu boton-categorias">
-                <i class="bi bi-arrow-right-square"></i>Internación
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios2"
+                  value="option2"
+                />
+                <label class="form-check-label" for="exampleRadios2">
+                  Internación
+                </label>
               </button>
-            </li>
-            <li>
+            </div>
+          </li>
+          <li class="barra__option">
+            <div class="form-check">
               <button id="cuidmed" class="boton-menu boton-categorias">
-                <i class="bi bi-arrow-right-square"></i>Cuidados Médicos
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios3"
+                  value="option3"
+                />
+                <label class="form-check-label" for="exampleRadios3">
+                  Cuidados Médicos
+                </label>
               </button>
-            </li>
-            <li>
+            </div>
+          </li>
+          <li class="barra__option">
+            <div class="form-check">
               <button id="transp" class="boton-menu boton-categorias">
-                <i class="bi bi-arrow-right-square"></i>Tipo de Transporte
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleRadios"
+                  id="exampleRadios4"
+                  value="option4"
+                />
+                <label class="form-check-label" for="exampleRadios4">
+                  Transportes
+                </label>
               </button>
-            </li>
-            <li>
-              <a class="boton-menu boton-carrito" href="./carrito.html">
-                <i class="bi bi-cart-fill"></i>Carrito
-                <span id="numerito" class="numerito">0</span>
-              </a>
-            </li>
-          </ul>
+            </div>
+          </li>
+          <li class="barra__option">
+            <a class="boton-menu boton-carrito" href="./carrito.html">
+              <i class="bi bi-cart-fill"></i>
+              <span class="name-carrito">Carrito</span>
+              <span id="numerito" class="numerito">0</span>
+            </a>
+          </li>
+        </ul>
+        <div class="busqueda">
+          <input
+            class="busqueda-input"
+            type="text"
+            id="input-busqueda"
+            placeholder="Buscar servicio por nombre"
+          />
+          <button class="busqueda-btn" id="btn-busqueda">Buscar</button>
         </div>
-      </aside>
-      <!-- Fin barra lateral Aside -->
-      <main>
+        <svg
+          class="wave"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 2040 320"
+        >
+          <path
+            fill="#FFFFFF"
+            fill-opacity="1"
+            d="M0,128L0,160L360,160L360,256L720,256L720,256L1080,256L1080,288L1440,288L1440,320L1080,320L1080,320L720,320L720,320L360,320L360,320L0,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+
+      <!-- Fin barra de servicio -->
+      <div class="wrapper">
         <!-- Cards -->
         <h2 class="titulo-principal" id="titulo-principal">
           Todos los Servicios
         </h2>
-
         <div id="contenedor-servicios" class="contenedor-servicios">
-          <!--esto se rellenan con JS-->
+          <!--contenido dinámico-->
         </div>
         <!-- Fin Cards -->
-      </main>
-    </div>
+      </div>
+    </main>
+
     <!--Sección pie de página -->
 
     <footer class="footer__container">
